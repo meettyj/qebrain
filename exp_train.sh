@@ -10,12 +10,12 @@ rm -rf $modeldir/*
 # batch_size is token level.
 # infer_batch_size is example level.
 python expert_model.py \
-      --src=lower.de \
-      --tgt=lower.en \
+      --src=rapid.de \
+      --tgt=rapid.en \
       --train_prefix=${datadir}/train \
       --dev_prefix=${datadir}/dev \
       --test_prefix=${datadir}/dev \
-      --vocab_prefix=${vocabdir}/vocab120k \
+      --vocab_prefix=${vocabdir}/vocab \
       --max_vocab_size=120000 \
       --out_dir=${modeldir} \
       --optimizer=lazyadam \
@@ -28,13 +28,13 @@ python expert_model.py \
       --num_units=512 \
       --num_layers=2 \
       --ffn_inner_dim=512 \
-      --batch_size=1024 \
+      --batch_size=512 \
       --infer_batch_size=64 \
       --metrics=BLEU \
       --bucket_width=5 \
       --avg_ckpts=True \
       --label_smoothing=0.1 \
-      --src_max_len=70 \
-      --tgt_max_len=70 \
-      --num_gpus=8
+      --src_max_len=30 \
+      --tgt_max_len=30 \
+      --num_gpus=2
 

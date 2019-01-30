@@ -1,0 +1,333 @@
+nohup: ignoring input
+# Vocab file ./data/vocab/vocab.rapid.de exists
+# Vocab file ./data/vocab/vocab.rapid.en exists
+  saving hparams to ./saved_exp_model/hparams
+  saving hparams to ./saved_exp_model/best_BLEU/hparams
+  avg_best_BLEU=0
+  avg_best_BLEU_dir=./saved_exp_model/avg_best_BLEU
+  avg_ckpts=True
+  batch_size=512
+  best_BLEU=0
+  best_BLEU_dir=./saved_exp_model/best_BLEU
+  bucket_width=5
+  check_special_token=True
+  dev_prefix=./data/para/dev
+  dropout=0.1
+  embedding_size=512
+  eos=</s>
+  epoch_step=0
+  ffn_inner_dim=512
+  infer_batch_size=64
+  label_smoothing=0.1
+  learning_rate=2.1
+  max_train=0
+  max_vocab_size=120000
+  metrics=['BLEU']
+  num_decoder_layers=2
+  num_encoder_layers=2
+  num_gpus=2
+  num_heads=8
+  num_keep_ckpts=5
+  num_layers=2
+  num_train_steps=500000
+  num_units=512
+  optimizer=lazyadam
+  out_dir=./saved_exp_model
+  random_seed=None
+  share_vocab=False
+  sos=<s>
+  src=rapid.de
+  src_max_len=30
+  src_max_len_infer=None
+  src_vocab_file=./data/vocab/vocab.rapid.de
+  src_vocab_size=674656
+  steps_per_external_eval=1000
+  steps_per_stats=100
+  test_prefix=./data/para/dev
+  tgt=rapid.en
+  tgt_max_len=30
+  tgt_max_len_infer=None
+  tgt_vocab_file=./data/vocab/vocab.rapid.en
+  tgt_vocab_size=674656
+  train_prefix=./data/para/train
+  vocab_prefix=./data/vocab/vocab
+  warmup_steps=8000
+2019-01-30 16:55:57.053658: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-01-30 16:55:57.576352: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:964] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-01-30 16:55:57.576752: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:01:00.0
+totalMemory: 10.92GiB freeMemory: 10.76GiB
+2019-01-30 16:55:57.657364: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:964] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-01-30 16:55:57.657820: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.607
+pciBusID: 0000:02:00.0
+totalMemory: 10.92GiB freeMemory: 10.76GiB
+2019-01-30 16:55:57.658543: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-01-30 16:55:58.075668: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-01-30 16:55:58.075697: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-01-30 16:55:58.075702: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-01-30 16:55:58.075705: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-01-30 16:55:58.075938: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/device:GPU:0 with 10406 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-30 16:55:58.076273: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/device:GPU:1 with 10407 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:02:00.0, compute capability: 6.1)
+# creating train graph ...
+  learning_rate=2.1, warmup_steps=8000
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (674656, 512), /device:CPU:0
+  embeddings/decoder/embedding_decoder:0, (674656, 512), /device:CPU:0
+  transformerpredictor/encoder/layer_0/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/encoder/layer_0/multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_0/multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_0/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_1/multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/encoder/layer_1/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/encoder/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 1024), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_1/bias:0, (1024,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_2/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_2/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 1024), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_1/bias:0, (1024,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_2/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_2/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/fw_decoder/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 1024), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_1/bias:0, (1024,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_2/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_2/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d/bias:0, (1536,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 1024), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_1/bias:0, (1024,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_2/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_2/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d_1/bias:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/LayerNorm/beta:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/bw_decoder/LayerNorm/gamma:0, (512,), /device:GPU:0
+  transformerpredictor/decoder/emb_proj_layer/kernel:0, (1024, 1024), /device:GPU:0
+  transformerpredictor/decoder/output_projection/kernel:0, (2048, 674656), /device:GPU:0
+2019-01-30 16:56:10.362878: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-01-30 16:56:10.362945: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-01-30 16:56:10.362950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-01-30 16:56:10.362953: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-01-30 16:56:10.362956: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-01-30 16:56:10.363150: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/device:GPU:0 with 10406 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-30 16:56:10.363359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/device:GPU:1 with 10407 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:02:00.0, compute capability: 6.1)
+# creating infer graph ...
+# Trainable variables
+  embeddings/encoder/embedding_encoder:0, (674656, 512), /device:CPU:0
+  embeddings/decoder/embedding_decoder:0, (674656, 512), /device:CPU:0
+  transformerpredictor/encoder/layer_0/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/encoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/encoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/encoder/layer_0/multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/encoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_0/multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/encoder/layer_0/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/encoder/layer_0/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/encoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_0/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/encoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_0/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/encoder/layer_1/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/encoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/encoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/encoder/layer_1/multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/encoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_1/multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/encoder/layer_1/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/encoder/layer_1/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/encoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_1/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/encoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/encoder/layer_1/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/encoder/LayerNorm/beta:0, (512,), 
+  transformerpredictor/encoder/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_0/masked_multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 1024), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_1/bias:0, (1024,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_2/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_0/multi_head/conv1d_2/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_0/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_1/masked_multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 1024), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_1/bias:0, (1024,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_2/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_1/multi_head/conv1d_2/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/fw_decoder/layer_1/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/fw_decoder/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_0/masked_multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_1/kernel:0, (1, 512, 1024), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_1/bias:0, (1024,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_2/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_0/multi_head/conv1d_2/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_0/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d/kernel:0, (1, 512, 1536), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d/bias:0, (1536,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_1/masked_multi_head/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_1/kernel:0, (1, 512, 1024), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_1/bias:0, (1024,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_2/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_1/multi_head/conv1d_2/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d_1/kernel:0, (1, 512, 512), 
+  transformerpredictor/decoder/bw_decoder/layer_1/ffn/conv1d_1/bias:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/LayerNorm/beta:0, (512,), 
+  transformerpredictor/decoder/bw_decoder/LayerNorm/gamma:0, (512,), 
+  transformerpredictor/decoder/emb_proj_layer/kernel:0, (1024, 1024), 
+  transformerpredictor/decoder/output_projection/kernel:0, (2048, 674656), 
+# log_file=./saved_exp_model/log_1548885371
+2019-01-30 16:56:11.676655: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-01-30 16:56:11.676715: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-01-30 16:56:11.676720: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-01-30 16:56:11.676723: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-01-30 16:56:11.676725: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-01-30 16:56:11.676915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10406 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-30 16:56:11.677038: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10407 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:02:00.0, compute capability: 6.1)
+2019-01-30 16:56:11.677607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-01-30 16:56:11.677634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-01-30 16:56:11.677639: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-01-30 16:56:11.677641: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-01-30 16:56:11.677644: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-01-30 16:56:11.677834: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10406 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-30 16:56:11.677962: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10407 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:02:00.0, compute capability: 6.1)
+2019-01-30 16:56:12.212899: W tensorflow/core/framework/allocator.cc:122] Allocation of 1381695488 exceeds 10% of system memory.
+2019-01-30 16:56:12.483126: W tensorflow/core/framework/allocator.cc:122] Allocation of 1381695488 exceeds 10% of system memory.
+2019-01-30 16:56:12.820777: W tensorflow/core/framework/allocator.cc:122] Allocation of 1381695488 exceeds 10% of system memory.
+2019-01-30 16:56:13.129937: W tensorflow/core/framework/allocator.cc:122] Allocation of 1381695488 exceeds 10% of system memory.
+2019-01-30 16:56:13.430257: W tensorflow/core/framework/allocator.cc:122] Allocation of 5526781952 exceeds 10% of system memory.
+Segmentation fault (core dumped)
