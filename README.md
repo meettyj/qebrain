@@ -21,7 +21,7 @@ We used the following OpenNMT-tf APIs, so the latest OpenNMT-tf may also work if
 5. Run `./qe_train.sh` to train the quality estimation model, and due to the small dataset, we only provide the single GPU implementation.
 6. Run `./qe_infer.sh` to make the inference on dataset without labels.
 
-Remind: If you are using rapid2016 dataset for quick test, you do not need to generate vocabulary agagin, because we contained it in folder `data/vocab`. Otherwise, you need run `python generate_vocab.py` to generate vocabulary file. 
+Reminds: If you are using rapid2016 dataset for quick test, you do not need to generate vocabulary agagin, because we contained it in folder `data/vocab`. Otherwise, you need run `python generate_vocab.py` to generate vocabulary file. 
 
 ## Suggestions
 I failed to run qebrain in my GPUs (2 * GTX 1080 Ti with 12GB memory each), and I have tried different sets of hparams (embedding_size, num_units, ffn_inner_dim, batch_size), still cannot make it. So if you guys have less memory than 24 GB, it would be a good choice to skip it. Otherwise you can ignore me and give it a brave try. Do not forget I already have done some part in data preprocessing and it would be free for you to move on. Anyway, if you find this repo helpful, I appreciate you can give it a star. Good luck warrior.
