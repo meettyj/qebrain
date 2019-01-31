@@ -1,6 +1,6 @@
-# qebrain / "Bilingual Expert" Can Find Translation Errors
+# qebrain_GPU-Test
 
-This repository provides an unofficial released implementation of paper ["Bilingual Expert" Can Find Translation Errors](https://arxiv.org/abs/1807.09433). Since the implementation details, data preprocessing, and other possibilities, it is not guaranteed to reproduce the results in [WMT 2018 QE task](http://www.statmt.org/wmt18/quality-estimation-task.html#results).
+This repository is forked from [lovecambi/qebrain](https://github.com/lovecambi/qebrain) and provides a GPU running test. In the paper ["Bilingual Expert" Can Find Translation Errors](https://arxiv.org/abs/1807.09433), which proposed the qebrain, the author has trained the model on 8 Nvidia P-100 GPUs for about 3 days until convergence. However, it may be challenging for us to have such computing resource. Thus, a quick experiment need to be done to find out the actual running time, or, whether it can be running or not.
 
 ## Requirements
 1. TensorFlow 1.12 `pip install tensorflow-gpu`
@@ -14,32 +14,12 @@ We used the following OpenNMT-tf APIs, so the latest OpenNMT-tf may also work if
     * `layers.ConcatReducer`
 
 ## Basic Usage
-1. Download the [parallel datasets](http://www.statmt.org/wmt18/translation-task.html#download) from WMT website.
-2. Preprocessing including tokenization, lowercasing, and vocabulary files.
-3. The parallel data should be put into foler `data/para` (four emtpty files for representative purpose), and the example vocab files are in folder `data/vocab`.
-4. Run `./expert_train.sh` to train bilingual expert model, and due to the large dataset, we provide the multi GPU implementation.
-5. Download the [QE dataset](https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-2619). An example dataset of sentence level De-En QE task has been downloaded and preprocessed in folder `data/qe`, including human features (If no human feature is prepared, set the argument `--use_hf=False`). 
-6. Run `./qe_train.sh` to train the quality estimation model, and due to the small dataset, we only provide the single GPU implementation.
-7. Run `./qe_infer.sh` to make the inference on dataset without labels.
+1. Download the [rapid2016 parallel datasets](http://data.statmt.org/wmt18/translation-task/rapid2016.tgz) and extract it into folder `data/para` (two emtpty files rapid2016.de-en.de(en) for representative purpose). You can also find other parallel dataset in [WMT website.](http://www.statmt.org/wmt18/translation-task.html#download) 
+2. Run `python preprocess_data.py` to randomly separate training set and dev set. After that we should have parllel data appeared in folder `data/para` (like we show with four other empty files). 
+3. Run `./expert_train.sh` to train bilingual expert model, and due to the large dataset, we provide the multi GPU implementation.
+4. Download the [QE dataset](https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-2619). An example dataset of sentence level De-En QE task has been downloaded and preprocessed in folder `data/qe`, including human features (If no human feature is prepared, set the argument `--use_hf=False`). 
+5. Run `./qe_train.sh` to train the quality estimation model, and due to the small dataset, we only provide the single GPU implementation.
+6. Run `./qe_infer.sh` to make the inference on dataset without labels.
 
-## Citation
-If you use this code for your research, please cite our papers.
-```
-@article{fan2018bilingual,
-  title={" Bilingual Expert" Can Find Translation Errors},
-  author={Fan, Kai and Li, Bo and Zhou, Fengming and Wang, Jiayi},
-  journal={arXiv preprint arXiv:1807.09433},
-  year={2018}
-}
+Remind: If you are using rapid2016 dataset for quick test, you do not need to generate vocabulary agagin, because we contained it in folder `data/vocab`. Otherwise, you need run `python generate_vocab.py` to generate vocabulary file. 
 
-@inproceedings{wang2018alibaba,
-  title={Alibaba Submission for WMT18 Quality Estimation Task},
-  author={Wang, Jiayi and Fan, Kai and Li, Bo and Zhou, Fengming and Chen, Boxing and Shi, Yangbin and Si, Luo},
-  booktitle={Proceedings of the Third Conference on Machine Translation: Shared Task Papers},
-  pages={809--815},
-  year={2018}
-}
-```
-
-## Reference
-Some of the utility functions are referred from [TensorFlow NMT](https://github.com/tensorflow/nmt).
