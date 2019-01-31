@@ -1,6 +1,6 @@
 # qebrain_GPU-Test
 
-This repository is forked from [lovecambi/qebrain](https://github.com/lovecambi/qebrain) and provides a GPU running test. In the paper ["Bilingual Expert" Can Find Translation Errors](https://arxiv.org/abs/1807.09433), which proposed the qebrain, the author has trained the model on 8 Nvidia P-100 GPUs for about 3 days until convergence. However, it may be challenging for us to have such computing resource. Thus, a quick experiment need to be done to find out the actual running time, or, whether it can be running or not.
+This repository is forked from [lovecambi/qebrain](https://github.com/lovecambi/qebrain) and provides a GPU running test. In the paper ["Bilingual Expert" Can Find Translation Errors](https://arxiv.org/abs/1807.09433), which proposed the qebrain, the author has trained the model on 8 Nvidia P-100 GPUs with 16 GB memory each for about 3 days until convergence. However, it may be challenging for us to have such computing resource. Thus, a quick experiment need to be done to find out the actual running time, or, whether it can be running or not.
 
 ## Requirements
 1. TensorFlow 1.12 `pip install tensorflow-gpu`
@@ -23,3 +23,5 @@ We used the following OpenNMT-tf APIs, so the latest OpenNMT-tf may also work if
 
 Remind: If you are using rapid2016 dataset for quick test, you do not need to generate vocabulary agagin, because we contained it in folder `data/vocab`. Otherwise, you need run `python generate_vocab.py` to generate vocabulary file. 
 
+## Suggestions
+I failed to run qebrain in my GPUs (2 * GTX 1080 Ti with 12GB memory each), and I have tried different sets of hparams (embedding_size, num_units, ffn_inner_dim, batch_size), still cannot make it. So if you guys have less memory than 24 GB, it would be a good choice to skip it. Otherwise you can ignore me and give it a brave try. Do not forget I already have done some part in data preprocessing and it would be free for you to move on. Anyway, if you find this repo helpful, I appreciate you can give it a star. Good luck warrior.
